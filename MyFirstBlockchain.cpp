@@ -2,7 +2,8 @@
 #include <ctime>
 #include <vector>
 #include <string>
-#include <boost/functional/hash.hpp>
+                                           // This program will run in online compiler if using windows os.
+                                           // Due to hash library used in this code for generating hash.
 using namespace std;
 
 // Transacton Data
