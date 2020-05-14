@@ -2,8 +2,8 @@
 #include <ctime>
 #include <vector>
 #include <string>
-                                           // This program will run in online compiler if using windows os.
-                                           // Due to hash library used in this code for generating hash.
+                                           // This program will run in online compiler if using windows os
+                                           // due to hash library used in this code for generating hash.
 using namespace std;
 
 // Transacton Data
@@ -185,6 +185,23 @@ int main()
     Supercoin.addBlock(data1);
     cout<<"Is chain Valid ??"<<"\n"
     <<Supercoin.ischainValid()<<"\n";
+   TransactionData data2;
+    time_t data2Time;
+    data2.amount=0.5555;
+    data2.receiverKey= "daduu";
+    data2.senderKey = "Tony";
+    data2.timestamp=time(&data2Time);
 
+    Supercoin.addBlock(data2);
+    cout<<"Now Is chain Valid ??"<<"\n"
+    <<Supercoin.ischainValid()<<"\n";
+    
+    //Someone,s trying change the last block
+    Block *hackBlock = Supercoin.getLatestBlock();
+    hackBlock->data.amount=10000.0;
+    hackBlock->data.receiverKey="Aman";
+    
+    cout<<"Now is the chain valid??? "<<"\n";
+    cout<<Supercoin.ischainValid()<<"\n";
    return 0;
 }
